@@ -1,2 +1,0 @@
-class ConnectDatabase:
-    pass
