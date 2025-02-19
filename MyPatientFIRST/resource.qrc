@@ -1,0 +1,23 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>icons/health-and-safety.svg</file>
+    <file>icons/billings.svg</file>
+    <file>icons/menu.svg</file>
+    <file>icons/exit.svg</file>
+    <file>icons/MyPatientFirstLogo_Symbol.JPG</file>
+    <file>icons/MyPatientFirstLogo_Full.JPG</file>
+    <file>icons/visit.svg</file>
+    <file>icons/patient.svg</file>
+    <file>icons/home.svg</file>
+    <file>icons/update.svg</file>
+    <file>icons/select.svg</file>
+    <file>icons/search.svg</file>
+    <file>icons/reset.svg</file>
+    <file>icons/import.svg</file>
+    <file>icons/export.svg</file>
+    <file>icons/expand_more.svg</file>
+    <file>icons/delete.svg</file>
+    <file>icons/clear.svg</file>
+    <file>icons/add.svg</file>
+  </qresource>
+</RCC>
