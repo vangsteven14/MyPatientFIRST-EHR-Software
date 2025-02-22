@@ -4,15 +4,15 @@ Hello, This is my undergraduate CAPSTONE project which is an EHR software that a
 
 ### <ins> **Resources, Inspirations, and Credits:** </ins>
 
-How to develop an EHR system for a medical company <br>
+** How to develop an EHR system for a medical company ** <br>
 DDI development | https://ddi-dev.com/blog/case/how-to-create-ehr-electronic-health-records-system-for-medical-company/ <br>
 
-Students Information Management System <br>
+**Students Information Management System ** <br>
 CodeQuestions | https://www.youtube.com/watch?v=2WuHs-5kMl0&list=PLOZuYrecM6VikZRf1D3kcQ22ipNu6eQtN <br>
 
-For PyQt6 sidebar example <br>
+**For PyQt6 sidebar example ** <br>
 CodeQuestions | https://www.youtube.com/watch?v=7DXxQV47jOU&list=PLtF31EG2RpwL3HztdElIYM3BtVYaoLV5C <br>
 
-Assets <br>
+** Assets ** <br>
 Google Fonts | Material Symbols and Icons <br>
 Design.com | Logo Design <br>
