@@ -7,7 +7,7 @@ Hello, This is my undergraduate CAPSTONE project which is an EHR software that a
 **_How to develop an EHR system for a medical company_** <br>
 DDI development | https://ddi-dev.com/blog/case/how-to-create-ehr-electronic-health-records-system-for-medical-company/ <br>
 
-**_Students Information Management System_** <br>
+**_Template inspirations from Students Information Management System_** <br>
 CodeQuestions | https://www.youtube.com/watch?v=2WuHs-5kMl0&list=PLOZuYrecM6VikZRf1D3kcQ22ipNu6eQtN <br>
 
 **_For PyQt6 sidebar example_** <br>
