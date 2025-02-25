@@ -14,7 +14,7 @@ CodeQuestions | https://www.youtube.com/watch?v=2WuHs-5kMl0&list=PLOZuYrecM6VikZ
 CodeQuestions | https://www.youtube.com/watch?v=7DXxQV47jOU&list=PLtF31EG2RpwL3HztdElIYM3BtVYaoLV5C <br>
 
 **_Python syntaxes and tutorials_** <br>
-"Automate The Boring Stuff with Python" 2nd Edition by Al Sweigart <br>
+"Automate the Boring Stuff with Python" 2nd Edition by Al Sweigart <br>
 
 **_Assets_** <br>
 Google Fonts | Material Symbols and Icons <br>
