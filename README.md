@@ -13,6 +13,12 @@ CodeQuestions | https://www.youtube.com/watch?v=2WuHs-5kMl0&list=PLOZuYrecM6VikZ
 **_For PyQt6 sidebar example_** <br>
 CodeQuestions | https://www.youtube.com/watch?v=7DXxQV47jOU&list=PLtF31EG2RpwL3HztdElIYM3BtVYaoLV5C <br>
 
+**_For PyQt6 opening another window_** <br>
+Ssj6 | https://www.youtube.com/watch?v=dRRpbDFnMHI&list=PLOZuYrecM6VikZRf1D3kcQ22ipNu6eQtN&index=2 <br>
+
+**_For PyQt6 displaying/uploading Images_** <br>
+Ken Clifton | https://www.youtube.com/watch?v=-AKBFPeJowc&list=PLOZuYrecM6VikZRf1D3kcQ22ipNu6eQtN&index=3 <br>
+
 **_Python syntaxes and tutorials_** <br>
 "Automate the Boring Stuff with Python" 2nd Edition by Al Sweigart <br>
 
