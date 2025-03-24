@@ -16,7 +16,7 @@ CodeQuestions | https://www.youtube.com/watch?v=7DXxQV47jOU&t=745s <br>
 **_For PyQt6 opening another window_** <br>
 Ssj6 | https://www.youtube.com/watch?v=dRRpbDFnMHI <br>
 
-**_For Creating Login Form to App_** <br>
+**_For Creating User Login Form to App_** <br>
 Jie Jenn | https://www.youtube.com/watch?v=pV8wRgHqmaQ&t=2s <br>
 
 **_Python syntaxes and tutorials_** <br>
