@@ -8,16 +8,16 @@ Hello, This is my undergraduate CAPSTONE project which is an EHR software that a
 DDI development | https://ddi-dev.com/blog/case/how-to-create-ehr-electronic-health-records-system-for-medical-company/ <br>
 
 **_Template inspirations from Students Information Management System_** <br>
-CodeQuestions | https://www.youtube.com/watch?v=2WuHs-5kMl0&list=PLOZuYrecM6VikZRf1D3kcQ22ipNu6eQtN <br>
+CodeQuestions | https://www.youtube.com/watch?v=2WuHs-5kMl0&t=870s <br>
 
 **_For PyQt6 sidebar example_** <br>
-CodeQuestions | https://www.youtube.com/watch?v=7DXxQV47jOU&list=PLtF31EG2RpwL3HztdElIYM3BtVYaoLV5C <br>
+CodeQuestions | https://www.youtube.com/watch?v=7DXxQV47jOU&t=745s <br>
 
 **_For PyQt6 opening another window_** <br>
-Ssj6 | https://www.youtube.com/watch?v=dRRpbDFnMHI&list=PLOZuYrecM6VikZRf1D3kcQ22ipNu6eQtN&index=2 <br>
+Ssj6 | https://www.youtube.com/watch?v=dRRpbDFnMHI <br>
 
 **_For Creating Login Form to App_** <br>
-Jie Jenn | [https://www.youtube.com/watch?v=-AKBFPeJowc&list=PLOZuYrecM6VikZRf1D3kcQ22ipNu6eQtN&index=3 ](https://www.youtube.com/watch?v=pV8wRgHqmaQ&list=PLOZuYrecM6VikZRf1D3kcQ22ipNu6eQtN&index=4)<br>
+Jie Jenn | https://www.youtube.com/watch?v=pV8wRgHqmaQ&t=2s <br>
 
 **_Python syntaxes and tutorials_** <br>
 "Automate the Boring Stuff with Python" 2nd Edition by Al Sweigart <br>
