@@ -16,8 +16,8 @@ CodeQuestions | https://www.youtube.com/watch?v=7DXxQV47jOU&list=PLtF31EG2RpwL3H
 **_For PyQt6 opening another window_** <br>
 Ssj6 | https://www.youtube.com/watch?v=dRRpbDFnMHI&list=PLOZuYrecM6VikZRf1D3kcQ22ipNu6eQtN&index=2 <br>
 
-**_For PyQt6 displaying/uploading Images_** <br>
-Ken Clifton | https://www.youtube.com/watch?v=-AKBFPeJowc&list=PLOZuYrecM6VikZRf1D3kcQ22ipNu6eQtN&index=3 <br>
+**_For Creating Login Form to App_** <br>
+Jie Jenn | [https://www.youtube.com/watch?v=-AKBFPeJowc&list=PLOZuYrecM6VikZRf1D3kcQ22ipNu6eQtN&index=3 ](https://www.youtube.com/watch?v=pV8wRgHqmaQ&list=PLOZuYrecM6VikZRf1D3kcQ22ipNu6eQtN&index=4)<br>
 
 **_Python syntaxes and tutorials_** <br>
 "Automate the Boring Stuff with Python" 2nd Edition by Al Sweigart <br>
