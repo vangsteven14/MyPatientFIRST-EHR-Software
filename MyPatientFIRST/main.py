@@ -1,9 +1,12 @@
 # Import neccessary modules
 import sys
-from PyQt6.QtWidgets import QMainWindow, QApplication, QPushButton, QMessageBox, QTableWidgetItem, QComboBox
+import mysql.connector
+from PyQt6.QtWidgets import (
+    QMainWindow, QApplication, QPushButton,
+    QMessageBox, QTableWidgetItem
+    )
 from PyQt6.QtGui import QIcon, QPixmap, QIntValidator
 from PyQt6.QtCore import QResource, QDate, QTime
-import mysql.connector
 
 # Import the UI widgets and functions for the main window
 from main_ui_widgets_buttons import MainUIWidgetsButtons
@@ -12,7 +15,8 @@ from main_ui_widgets_buttons import MainUIWidgetsButtons
 from connect_database import ConnectDatabase                               
 from connect_db_patients import ConnectDatabasePatients
 from connect_db_visits import ConnectDatabaseVisits                        
-from connect_db_billings import ConnectDatabaseBillings                    
+from connect_db_billings import ConnectDatabaseBillings
+from connect_db_userLogin import LoginWindow                       
 
 # Import the Main Window UI, View Patient Profile, View Patient Visit, and View Patient Bill UI files
 from main_ui import Ui_MainWindow
@@ -23,10 +27,10 @@ from view_patient_billing_ui import Ui_ViewPatientBilling
 # Import the resource file
 QResource.registerResource("resource.qrc")
 
-# Create a main window class
+# Class for the main window applicaiton
 class MainWindow(QMainWindow):
         def __init__(self):
-            super().__init__()
+            super().__init__() 
 
             # Set the window icon ------------------------------------------- #
             self.setWindowIcon(QIcon("icons/MyPatientFirstLogo_Symbol.JPG")) 
@@ -35,7 +39,7 @@ class MainWindow(QMainWindow):
             self.db = ConnectDatabase()                              
             self.db_patients = ConnectDatabasePatients(self.db)
             self.db_visits = ConnectDatabaseVisits(self.db)                 
-            self.db_billings = ConnectDatabaseBillings(self.db)             
+            self.db_billings = ConnectDatabaseBillings(self.db)            
 
             # Initialize the UI from a seperate UI file ------------------------------- #
             self.ui = Ui_MainWindow()
@@ -115,7 +119,7 @@ class MainWindow(QMainWindow):
             self.result_table_visits.setSortingEnabled(False)
             self.buttons_list_visits = self.ui.visits_function_frame.findChildren(QPushButton)
 
-            # Initialize signal and slots connections for vists_info table # Down on lines 561-2
+            # Initialize signal and slots connections for vists_info table
             self.init_signal_slots_visits()
 
             # Populate initial data from patients_info table to patient_id combobox
@@ -152,7 +156,7 @@ class MainWindow(QMainWindow):
             self.result_table_billings.setSortingEnabled(False)
             self.buttons_list_billings = self.ui.billings_function_frame.findChildren(QPushButton)
 
-            # Initialize signal and slots connections for billings_info table # Down on lines 1062-3
+            # Initialize signal and slots connections for billings_info table
             self.init_signal_slots_billings()
 
         # Function to display images for home page
@@ -174,12 +178,12 @@ class MainWindow(QMainWindow):
 
         # Main code functions for patient table ------------------------------------------------------------------------------------------------------------ #
         def init_signal_slots_patients(self):
-            self.pat_add_btn.clicked.connect(self.add_info)
-            self.pat_update_btn.clicked.connect(self.update_info)
-            self.pat_select_btn.clicked.connect(self.select_info)
-            self.pat_delete_btn.clicked.connect(self.delete_info) 
-            self.pat_clear_btn.clicked.connect(self.clear_info)
-            self.pat_search_btn.clicked.connect(self.search_info)
+            self.pat_add_btn.clicked.connect(self.add_info_patients)
+            self.pat_update_btn.clicked.connect(self.update_info_patients)
+            self.pat_select_btn.clicked.connect(self.select_info_patients)
+            self.pat_delete_btn.clicked.connect(self.delete_info_patients) 
+            self.pat_clear_btn.clicked.connect(self.clear_info_patients)
+            self.pat_search_btn.clicked.connect(self.search_info_patients)
 
             # Connects to View Patient Profile button
             self.view_pat_profile_btn.clicked.connect(self.openViewPatientProfile)
@@ -195,7 +199,7 @@ class MainWindow(QMainWindow):
                 button.setDisabled(False)
 
         # Functions for patient_function_frame
-        def add_info(self):
+        def add_info_patients(self):
             patient_id = self.patient_id.text()
             first_name = self.first_name.text()
             last_name = self.last_name.text()
@@ -237,10 +241,10 @@ class MainWindow(QMainWindow):
                 QMessageBox.warning(self, "Error!", f"Database insertion failed: {e}",
                                     QMessageBox.StandardButton.Ok)
             
-            self.search_info()
+            self.search_info_patients()
             self.enable_buttons_patients()
                 
-        def update_info(self):
+        def update_info_patients(self):
             # Function to update patient information
             new_patient_info = self.get_patient_info()
 
@@ -280,13 +284,13 @@ class MainWindow(QMainWindow):
                 else:
                     QMessageBox.information(self, "Success", "Patient information updated successfully!",
                                     QMessageBox.StandardButton.Ok)
-                    self.search_info()
+                    self.search_info_patients()
             
             else:
                 QMessageBox.information(self, "Warning", "Please select one patient information to update.",
                                         QMessageBox.StandardButton.Ok)
                 
-        def select_info(self):
+        def select_info_patients(self):
             # Function to select and populate patient information in the form
             select_row = self.result_table.currentRow()
 
@@ -320,18 +324,19 @@ class MainWindow(QMainWindow):
             self.medications.setText(medications)
             self.email_address.setText(email_address)                
 
-        def delete_info(self):
+        def delete_info_patients(self):
             # Function to delete patient information
             select_row = self.result_table.currentRow()
             if select_row != -1:
-                select_option = QMessageBox.warning(self, "Warning", "Are you sure you want to delete this patient information?",
-                                                     QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+                select_option = QMessageBox.warning(self, "Warning", "Are you sure you want to delete this patient information?\n"
+                                                          "This can delete all information related to this patient including in visits and billings table.",
+                                                    QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
                 if select_option == QMessageBox.StandardButton.Yes:
                     patient_id = self.result_table.item(select_row, 0).text().strip()
 
                     delete_result = self.db_patients.delete_info(patient_id=patient_id)
                     if not delete_result:
-                        self.search_info()
+                        self.search_info_patients()
                     else:
                         QMessageBox.information(self, "Warning", f"Fail to delete the information: {delete_result}, Please try again.",
                                                 QMessageBox.StandardButton.Ok)
@@ -339,7 +344,7 @@ class MainWindow(QMainWindow):
                 QMessageBox.information(self, "Warning", "Please select one patient information to delete.",
                                         QMessageBox.StandardButton.Ok)
                 
-        def clear_info(self):
+        def clear_info_patients(self):
             # Function to clear patient information in the form
             self.patient_id.clear()
             self.patient_id.setEnabled(True)
@@ -352,9 +357,9 @@ class MainWindow(QMainWindow):
             self.email_address.clear()
 
             # Ensures call search_info displays all records
-            self.search_info()
+            self.search_info_patients()
 
-        def search_info(self):
+        def search_info_patients(self):
             patient_info = self.get_patient_info()
             # Check if all fields are empty; if so, fetch all records
             # Otherwise, if all values are empty, fetch all records
@@ -372,7 +377,7 @@ class MainWindow(QMainWindow):
                     email_address=patient_info["emailAddress"]
                 )
                 
-            self.show_data(patient_result)
+            self.patients_show_data(patient_result)
 
         # Function to View Patient Profile via "viewPatProfile_btn_1" button from Patient Page 1
         def openViewPatientProfile(self):
@@ -465,7 +470,7 @@ class MainWindow(QMainWindow):
         # Function to update patient information in the view patient profile window
         def pat_update_info(self):
             # Retrieve patient data from input fields
-            patient_sex_data = {
+            patient_pat_data = {
                 "lastName": self.view_patient_ui.patSearch_lineEdit_1.text().strip(),
                 "firstName": self.view_patient_ui.patSearch_lineEdit_2.text().strip(),
                 "patientID": self.view_patient_ui.patSearch_lineEdit_3.text().strip(),
@@ -477,19 +482,13 @@ class MainWindow(QMainWindow):
             }
 
             # Ensure the patient ID is not empty
-            if not patient_sex_data["patientID"]:
+            if not patient_pat_data["patientID"]:
                 QMessageBox.warning(self, "Update Failed", "Patient ID is required for updating.",
                                     QMessageBox.StandardButton.Ok)
                 return
 
-            # Include image data if available
-            '''
-            if hasattr(self, "image_path") and self.image_path:
-                with open(self.image_path, "rb") as file:
-                    patient_sex_data["profileImage"] = file.read()
-            '''
             # Call the update function in the database
-            update_success = self.db_patients.pat_update_info(**patient_sex_data)
+            update_success = self.db_patients.pat_update_info(**patient_pat_data)
 
             if update_success:
                 QMessageBox.information(self, "Success", "Patient information updated successfully.",
@@ -530,7 +529,7 @@ class MainWindow(QMainWindow):
                                         QMessageBox.StandardButton.Ok)
 
         # Function to populate the patient table with patient information
-        def show_data(self, result):
+        def patients_show_data(self, result):
             self.result_table.setRowCount(0)
 
             if not result:
@@ -800,8 +799,9 @@ class MainWindow(QMainWindow):
             # Function to delete visit information
             select_row = self.result_table_visits.currentRow()
             if select_row != -1:
-                select_option = QMessageBox.warning(self, "Warning", "Are you sure you want to delete this patient information?",
-                                                     QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+                select_option = QMessageBox.warning(self, "Warning", "Are you sure you want to delete this patient information?\n"
+                                                          "This can delete all information related to this patient including in patients and billings table.",
+                                                    QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
                 if select_option == QMessageBox.StandardButton.Yes:
                     visit_id = self.result_table_visits.item(select_row, 1).text().strip()
 
@@ -969,7 +969,7 @@ class MainWindow(QMainWindow):
          # Function to update patient visit information in the view patient profile window
         def visits_update_info(self):
             # Retrieve patient and visit data from input fields
-            patient_data = {
+            patient_visits_data = {
                 "lastName": self.view_visits_ui.visitSearch_lineEdit_1.text(),
                 "firstName": self.view_visits_ui.visitSearch_lineEdit_2.text(),
                 "patientID": self.view_visits_ui.visitSearch_lineEdit_3.text(),
@@ -982,13 +982,13 @@ class MainWindow(QMainWindow):
             }
 
             # Ensure the patient ID is not empty
-            if not patient_data["patientID"]:
+            if not patient_visits_data["patientID"]:
                 QMessageBox.warning(self, "Update Failed", "Patient ID is required for updating.",
                                     QMessageBox.StandardButton.Ok)
                 return
 
             # Call the update function in the database
-            update_success = self.db_visits.visits_update_info(**patient_data)
+            update_success = self.db_visits.visits_update_info(**patient_visits_data)
 
             if update_success:
                 QMessageBox.information(self, "Success", "Patient information updated successfully.",
@@ -1294,8 +1294,9 @@ class MainWindow(QMainWindow):
             # Function to delete visit information
             select_row = self.result_table_billings.currentRow()
             if select_row != -1:
-                select_option = QMessageBox.warning(self, "Warning", "Are you sure you want to delete this patient information?",
-                                                     QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+                select_option = QMessageBox.warning(self, "Warning", "Are you sure you want to delete this patient information?\n"
+                                                          "This can delete all information related to this patient including in patients and visits table.",
+                                                    QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
                 if select_option == QMessageBox.StandardButton.Yes:
                     billing_id = self.result_table_billings.item(select_row, 2).text().strip()
 
@@ -1455,11 +1456,14 @@ class MainWindow(QMainWindow):
             self.view_billings_ui.billSearch_lineEdit_6.clear()
             self.view_billings_ui.billSearch_lineEdit_7.clear()
             self.view_billings_ui.billSearch_lineEdit_8.clear()
+            self.view_billings_ui.profilePic_label.clear()
+            self.view_billings_ui.billSearchName_lineEdit_1.clear()
+            self.view_billings_ui.billSearchName_lineEdit_2.clear()
         
         # Function to update patient billing information in the view patient profile window
         def billings_update_info(self):
             # Retrieve patient and visit data from input fields
-            patient_data = {
+            patient_billings_data = {
                 "patientID": self.view_billings_ui.billSearch_lineEdit_1.text(),
                 "visitID": self.view_billings_ui.billSearch_lineEdit_2.text(),
                 "billingID": self.view_billings_ui.billSearch_lineEdit_3.text(),
@@ -1471,13 +1475,13 @@ class MainWindow(QMainWindow):
             }
 
             # Ensure the patient ID is not empty
-            if not patient_data["patientID"]:
+            if not patient_billings_data["patientID"]:
                 QMessageBox.warning(self, "Update Failed", "Patient ID is required for updating.",
                                     QMessageBox.StandardButton.Ok)
                 return
 
             # Call the update function in the database
-            update_success = self.db_billings.billings_update_info(**patient_data)
+            update_success = self.db_billings.billings_update_info(**patient_billings_data)
 
             if update_success:
                 QMessageBox.information(self, "Success", "Patient information updated successfully.",
@@ -1582,7 +1586,10 @@ if __name__ == '__main__':
         style_qss = style_file.read()
     app.setStyleSheet(style_qss)
 
-    window = MainWindow()
-    window.show()
+    LoginWindow = LoginWindow()
+    LoginWindow.show()
+
+    #MainWindow = MainWindow()
+    #MainWindow.show()
 
     sys.exit(app.exec())

@@ -10,10 +10,10 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 
 class Ui_ViewPatientBilling(object):
-    def setupUi(self, ViewPatientProfile):
-        ViewPatientProfile.setObjectName("ViewPatientProfile")
-        ViewPatientProfile.resize(500, 530)
-        self.centralwidget = QtWidgets.QWidget(parent=ViewPatientProfile)
+    def setupUi(self, ViewPatientBilling):
+        ViewPatientBilling.setObjectName("ViewPatientBilling")
+        ViewPatientBilling.resize(500, 530)
+        self.centralwidget = QtWidgets.QWidget(parent=ViewPatientBilling)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_5 = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout_5.setObjectName("gridLayout_5")
@@ -222,30 +222,30 @@ class Ui_ViewPatientBilling(object):
         spacerItem2 = QtWidgets.QSpacerItem(21, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.gridLayout_2.addItem(spacerItem2, 0, 3, 1, 1)
         self.gridLayout_5.addWidget(self.patProfilePic_frame, 1, 0, 1, 1)
-        ViewPatientProfile.setCentralWidget(self.centralwidget)
+        ViewPatientBilling.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(ViewPatientProfile)
-        self.patCancel_btn.clicked.connect(ViewPatientProfile.close) # type: ignore
-        self.patOk_btn.clicked.connect(ViewPatientProfile.close) # type: ignore
-        QtCore.QMetaObject.connectSlotsByName(ViewPatientProfile)
+        self.retranslateUi(ViewPatientBilling)
+        self.patCancel_btn.clicked.connect(ViewPatientBilling.close) # type: ignore
+        self.patOk_btn.clicked.connect(ViewPatientBilling.close) # type: ignore
+        QtCore.QMetaObject.connectSlotsByName(ViewPatientBilling)
 
-    def retranslateUi(self, ViewPatientProfile):
+    def retranslateUi(self, ViewPatientBilling):
         _translate = QtCore.QCoreApplication.translate
-        ViewPatientProfile.setWindowTitle(_translate("ViewPatientProfile", "MainWindow"))
-        self.patCancel_btn.setText(_translate("ViewPatientProfile", "Cancel"))
-        self.patOk_btn.setText(_translate("ViewPatientProfile", "OK"))
-        self.patSearch_label.setText(_translate("ViewPatientProfile", "PatientID: "))
-        self.patSearch_btn.setText(_translate("ViewPatientProfile", "Search"))
-        self.patUpdate_btn.setText(_translate("ViewPatientProfile", "Update"))
-        self.patDelete_btn.setText(_translate("ViewPatientProfile", "Delete"))
-        self.patClear_btn.setText(_translate("ViewPatientProfile", "Clear"))
-        self.billSearchlabel_4.setText(_translate("ViewPatientProfile", "Amount:"))
-        self.billSearchlabel_5.setText(_translate("ViewPatientProfile", "Status:"))
-        self.billSearchlabel_7.setText(_translate("ViewPatientProfile", "Service:"))
-        self.billSearchlabel_6.setText(_translate("ViewPatientProfile", "Doctor: "))
-        self.billSearchlabel_3.setText(_translate("ViewPatientProfile", "BillingID:"))
-        self.billSearchlabel_8.setText(_translate("ViewPatientProfile", "Reason:"))
-        self.billSearchlabel_1.setText(_translate("ViewPatientProfile", "PatientID:"))
-        self.billSearchlabel_2.setText(_translate("ViewPatientProfile", "VisitID:"))
-        self.billSearchNamelabel_1.setText(_translate("ViewPatientProfile", "Last Name:"))
-        self.billSearchNamelabel_2.setText(_translate("ViewPatientProfile", "First Name:"))
+        ViewPatientBilling.setWindowTitle(_translate("ViewPatientBilling", "View Patient Billing"))
+        self.patCancel_btn.setText(_translate("ViewPatientBilling", "Cancel"))
+        self.patOk_btn.setText(_translate("ViewPatientBilling", "OK"))
+        self.patSearch_label.setText(_translate("ViewPatientBilling", "PatientID: "))
+        self.patSearch_btn.setText(_translate("ViewPatientBilling", "Search"))
+        self.patUpdate_btn.setText(_translate("ViewPatientBilling", "Update"))
+        self.patDelete_btn.setText(_translate("ViewPatientBilling", "Delete"))
+        self.patClear_btn.setText(_translate("ViewPatientBilling", "Clear"))
+        self.billSearchlabel_4.setText(_translate("ViewPatientBilling", "Amount:"))
+        self.billSearchlabel_5.setText(_translate("ViewPatientBilling", "Status:"))
+        self.billSearchlabel_7.setText(_translate("ViewPatientBilling", "Service:"))
+        self.billSearchlabel_6.setText(_translate("ViewPatientBilling", "Doctor: "))
+        self.billSearchlabel_3.setText(_translate("ViewPatientBilling", "BillingID:"))
+        self.billSearchlabel_8.setText(_translate("ViewPatientBilling", "Reason:"))
+        self.billSearchlabel_1.setText(_translate("ViewPatientBilling", "PatientID:"))
+        self.billSearchlabel_2.setText(_translate("ViewPatientBilling", "VisitID:"))
+        self.billSearchNamelabel_1.setText(_translate("ViewPatientBilling", "Last Name:"))
+        self.billSearchNamelabel_2.setText(_translate("ViewPatientBilling", "First Name:"))

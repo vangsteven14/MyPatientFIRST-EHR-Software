@@ -13,7 +13,8 @@
 
 /* Style for QPushButton */
 	#side_widget_2 QPushButton {
-		border:none;
+		outline: none;
+		border: none;
 		border-radius: 3px;
 		text-align: left;
 		padding: 5px 20px 5px 5px;
@@ -21,18 +22,24 @@
 		background-color: rgba(255, 255, 255, 0.9);
 	}
 
+	#side_widget_1 QPushButton {
+		outline: none;
+		border: none;
+		border-radius: 3px;
+		text-align: left;
+		padding: 5px 5px 5px 20px;
+		color: black;
+		background-color: rgba(255, 255, 255, 0.9);
+	}
+
 	#side_widget_1 QPushButton:hover, #side_widget_2 QPushButton:hover {
-		background-color: rgba(86, 101, 115, 0.5);
+		background-color: rgba(94, 125, 155, 0.5);
+		color: #fff;
 	}
 
 	#side_widget_1 QPushButton:focus, #side_widget_2 QPushButton:focus {
 		outline: none; 
 		border: none; 
-	}
-
-	#seide_widget_1 QPushButton:checked, #side_widget_2 QPushButton:checked {
-		color: black;
-		border: none;
 	}
 
 	/* style for logo image */

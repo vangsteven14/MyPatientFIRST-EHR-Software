@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ViewPatientProfile</class>
- <widget class="QMainWindow" name="ViewPatientProfile">
+ <class>ViewPatientVisit</class>
+ <widget class="QMainWindow" name="ViewPatientVisit">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -404,7 +404,7 @@
   <connection>
    <sender>patCancel_btn</sender>
    <signal>clicked()</signal>
-   <receiver>ViewPatientProfile</receiver>
+   <receiver>ViewPatientVisit</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -420,7 +420,7 @@
   <connection>
    <sender>patOk_btn</sender>
    <signal>clicked()</signal>
-   <receiver>ViewPatientProfile</receiver>
+   <receiver>ViewPatientVisit</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">

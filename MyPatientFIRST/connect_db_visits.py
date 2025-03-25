@@ -54,7 +54,6 @@ class ConnectDatabaseVisits(ConnectDatabase):
             return "Error: Unable to add new visit. Please try again."
 
         finally:
-            # Closes the database connection
             self.con.close()
 
     # function to update data to visits_info from SQL database 
@@ -106,7 +105,7 @@ class ConnectDatabaseVisits(ConnectDatabase):
         except Exception as e:  # Rollback the transaction in case of an error
             self.con.rollback()
             return e
-        finally:  # Close the database connection
+        finally:  
             self.con.close()
 
     # function to delete data to vivits_info from SQL database 
@@ -129,7 +128,7 @@ class ConnectDatabaseVisits(ConnectDatabase):
             self.con.rollback()
             return E
 
-        finally: # Close the database connection
+        finally: 
             self.con.close()
 
     # function to search data to patients_info from SQL database
@@ -187,7 +186,7 @@ class ConnectDatabaseVisits(ConnectDatabase):
             print("Database search error:", e)
             return []  # Return empty list instead of crashing
         finally:
-            self.con.close()  # Close the database connection
+            self.con.close()  
 
     # function for View Patient Visit to patients_info from SQL database
     def visits_search_info(self, patient_id=None, visit_id=None, status=None, last_name=None, first_name=None, visit_date=None, visit_year=None, visit_month=None, visit_day=None, visit_time=None, type=None, reason=None):

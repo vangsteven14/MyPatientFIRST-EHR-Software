@@ -59,7 +59,6 @@ class ConnectDatabasePatients(ConnectDatabase):
             return "Error: Unable to add patient. Please try again."
 
         finally:
-            # Closes the database connection
             self.con.close()
 
     # function to update data to patients_info from SQL database 
@@ -110,7 +109,7 @@ class ConnectDatabasePatients(ConnectDatabase):
         except Exception as e:  # Rollback the transaction in case of an error
             self.con.rollback()
             return e
-        finally:  # Close the database connection
+        finally:  
             self.con.close()
 
     # function to delete data to patients_info from SQL database 
@@ -133,7 +132,7 @@ class ConnectDatabasePatients(ConnectDatabase):
             self.con.rollback()
             return E
 
-        finally: # Close the database connection
+        finally: 
             self.con.close()
 
     # function to search data to patients_info from SQL database
@@ -248,7 +247,7 @@ class ConnectDatabasePatients(ConnectDatabase):
             print("Database search error:", e)
             return []  # Return empty list instead of crashing
         finally:
-            self.con.close()  # Close the database connection
+            self.con.close()  #
 
     # function for View Patient Profile to update data to patients_info from SQL database
     def pat_update_info(self, **kwargs):

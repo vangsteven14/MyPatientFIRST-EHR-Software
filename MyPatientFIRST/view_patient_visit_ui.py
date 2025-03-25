@@ -10,10 +10,10 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 
 class Ui_ViewPatientVisit(object):
-    def setupUi(self, ViewPatientProfile):
-        ViewPatientProfile.setObjectName("ViewPatientProfile")
-        ViewPatientProfile.resize(500, 530)
-        self.centralwidget = QtWidgets.QWidget(parent=ViewPatientProfile)
+    def setupUi(self, ViewPatientVisit):
+        ViewPatientVisit.setObjectName("ViewPatientVisit")
+        ViewPatientVisit.resize(500, 530)
+        self.centralwidget = QtWidgets.QWidget(parent=ViewPatientVisit)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_5 = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout_5.setObjectName("gridLayout_5")
@@ -207,29 +207,29 @@ class Ui_ViewPatientVisit(object):
         self.patOk_btn.setObjectName("patOk_btn")
         self.gridLayout_4.addWidget(self.patOk_btn, 0, 2, 1, 1)
         self.gridLayout_5.addWidget(self.patProfile_apply_frame, 2, 0, 1, 2)
-        ViewPatientProfile.setCentralWidget(self.centralwidget)
+        ViewPatientVisit.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(ViewPatientProfile)
-        self.patCancel_btn.clicked.connect(ViewPatientProfile.close) # type: ignore
-        self.patOk_btn.clicked.connect(ViewPatientProfile.close) # type: ignore
-        QtCore.QMetaObject.connectSlotsByName(ViewPatientProfile)
+        self.retranslateUi(ViewPatientVisit)
+        self.patCancel_btn.clicked.connect(ViewPatientVisit.close) # type: ignore
+        self.patOk_btn.clicked.connect(ViewPatientVisit.close) # type: ignore
+        QtCore.QMetaObject.connectSlotsByName(ViewPatientVisit)
 
-    def retranslateUi(self, ViewPatientProfile):
+    def retranslateUi(self, ViewPatientVisit):
         _translate = QtCore.QCoreApplication.translate
-        ViewPatientProfile.setWindowTitle(_translate("ViewPatientProfile", "MainWindow"))
-        self.patSearch_btn.setText(_translate("ViewPatientProfile", "Search"))
-        self.patUpdate_btn.setText(_translate("ViewPatientProfile", "Update"))
-        self.patDelete_btn.setText(_translate("ViewPatientProfile", "Delete"))
-        self.patClear_btn.setText(_translate("ViewPatientProfile", "Clear"))
-        self.patSearch_label.setText(_translate("ViewPatientProfile", "PatientID: "))
-        self.visitSearchlabel_1.setText(_translate("ViewPatientProfile", "Last Name:"))
-        self.visitSearchlabel_3.setText(_translate("ViewPatientProfile", "PatientID:"))
-        self.visitSearchlabel_7.setText(_translate("ViewPatientProfile", "Type:"))
-        self.visitSearchlabel_8.setText(_translate("ViewPatientProfile", "Reason:"))
-        self.visitSearchlabel_4.setText(_translate("ViewPatientProfile", "VisitID:"))
-        self.visitSearchlabel_2.setText(_translate("ViewPatientProfile", "First Name:"))
-        self.visitSearchlabel_6.setText(_translate("ViewPatientProfile", "Visit Date:"))
-        self.visitSearchlabel_5.setText(_translate("ViewPatientProfile", "Status:"))
-        self.label.setText(_translate("ViewPatientProfile", "Visit Time:"))
-        self.patCancel_btn.setText(_translate("ViewPatientProfile", "Cancel"))
-        self.patOk_btn.setText(_translate("ViewPatientProfile", "OK"))
+        ViewPatientVisit.setWindowTitle(_translate("ViewPatientVisit", "View Patient Visit"))
+        self.patSearch_btn.setText(_translate("ViewPatientVisit", "Search"))
+        self.patUpdate_btn.setText(_translate("ViewPatientVisit", "Update"))
+        self.patDelete_btn.setText(_translate("ViewPatientVisit", "Delete"))
+        self.patClear_btn.setText(_translate("ViewPatientVisit", "Clear"))
+        self.patSearch_label.setText(_translate("ViewPatientVisit", "PatientID: "))
+        self.visitSearchlabel_1.setText(_translate("ViewPatientVisit", "Last Name:"))
+        self.visitSearchlabel_3.setText(_translate("ViewPatientVisit", "PatientID:"))
+        self.visitSearchlabel_7.setText(_translate("ViewPatientVisit", "Type:"))
+        self.visitSearchlabel_8.setText(_translate("ViewPatientVisit", "Reason:"))
+        self.visitSearchlabel_4.setText(_translate("ViewPatientVisit", "VisitID:"))
+        self.visitSearchlabel_2.setText(_translate("ViewPatientVisit", "First Name:"))
+        self.visitSearchlabel_6.setText(_translate("ViewPatientVisit", "Visit Date:"))
+        self.visitSearchlabel_5.setText(_translate("ViewPatientVisit", "Status:"))
+        self.label.setText(_translate("ViewPatientVisit", "Visit Time:"))
+        self.patCancel_btn.setText(_translate("ViewPatientVisit", "Cancel"))
+        self.patOk_btn.setText(_translate("ViewPatientVisit", "OK"))

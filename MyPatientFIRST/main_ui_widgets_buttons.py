@@ -28,8 +28,6 @@ class MainUIWidgetsButtons():
     # Function for changing menu page via side widget buttons --------------------------------- #
     def connect_buttons(self):
         # Functions for side widgets menu page
-        self.ui.menu_btn_1.toggled.connect(self.menu_tab_toggled)       # Still in progress for side widgets delay animation
-
         self.ui.home_btn_1.toggled.connect(self.home_btn_toggled)
         self.ui.home_btn_2.toggled.connect(self.home_btn_toggled)
 
@@ -75,9 +73,6 @@ class MainUIWidgetsButtons():
             self.ui.stackedWidget.setCurrentIndex(3)
         else:
             print("Error: Page index 3 does not exist!")
-
-    def menu_tab_toggled(self):
-        pass
 
     def stackedWidget_currentChanged(self, index):
         btn_list = self.ui.side_widget_1.findChildren(QPushButton) + self.ui.side_widget_2.findChildren(QPushButton)

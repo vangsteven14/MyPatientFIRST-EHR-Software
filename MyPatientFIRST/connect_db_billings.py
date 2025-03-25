@@ -60,7 +60,6 @@ class ConnectDatabaseBillings(ConnectDatabase):
             return "Error: Unable to add new billing statment. Please try again."
 
         finally:
-            # Closes the database connection
             self.con.close()
     
     # function to update data to patients_info from SQL database 
@@ -104,7 +103,7 @@ class ConnectDatabaseBillings(ConnectDatabase):
         except Exception as e:  # Rollback the transaction in case of an error
             self.con.rollback()
             return e
-        finally:  # Close the database connection
+        finally:  
             self.con.close()
 
     # function to delete data to patients_info from SQL database 
@@ -127,7 +126,7 @@ class ConnectDatabaseBillings(ConnectDatabase):
             self.con.rollback()
             return E
 
-        finally: # Close the database connection
+        finally: 
             self.con.close()
 
     # function to search data to patients_info from SQL database
@@ -169,7 +168,7 @@ class ConnectDatabaseBillings(ConnectDatabase):
             print("Database search error:", e)
             return []  # Return empty list instead of crashing
         finally:
-            self.con.close()  # Close the database connection
+            self.con.close()  
 
     # function for View Patient Billing to patients_info from SQL database
     def billings_search_info(self, patient_id=None, visit_id=None, billing_id=None, amount=None, status=None, doctor=None, service=None, reason=None):
