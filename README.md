@@ -20,7 +20,7 @@ Ssj6 | https://www.youtube.com/watch?v=dRRpbDFnMHI <br>
 Jie Jenn | https://www.youtube.com/watch?v=pV8wRgHqmaQ&t=2s <br>
 
 **_How to convert Python Script to .exe file_** <br>
-https://www.geeksforgeeks.org/convert-python-script-to-exe-file
+GeeksforGeeks | https://www.geeksforgeeks.org/convert-python-script-to-exe-file
 
 **_Python syntaxes and tutorials_** <br>
 "Automate the Boring Stuff with Python" 2nd Edition by Al Sweigart <br>
