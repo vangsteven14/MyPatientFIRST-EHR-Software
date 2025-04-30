@@ -2,6 +2,9 @@
 
 Hello, This is my undergraduate CAPSTONE project which is an EHR software that assist healthcare providers like doctors, nurses, or medical clerks manage patient records such as their personal information, health history, upcoming visits, and similar data in the healthcare industry.
 
+For a MyPatientFIRST video demonstration link:
+https://www.youtube.com/watch?v=WrT45ACr-Jk&t=24s
+
 ### <ins> **Resources, Inspirations, and Credits:** </ins>
 
 **_How to develop an EHR system for a medical company_** <br>
